@@ -1,0 +1,29 @@
+#include <iostream> 
+using namespace std; 
+void rotate(int n, int a[][100]) { 
+for (int i = 0; i < n; i++) { 
+for (int j = i; j < n; j++) swap(a[i][j], a[j][i]); 
+} 
+for (int i = 0; i < n; i++) { 
+for (int j = 0; j < n / 2; j++) swap(a[i][j], a[i][n - j - 1]); 
+} 
+} 
+void print(int n, int a[][100]) { 
+for (int i = 0; i < n; i++) { 
+for (int j = 0; j < n; j++) cout << a[i][j] << " "; 
+cout << endl; 
+} 
+} 
+int main() { 
+int n, a[100][100]; 
+cout << "Enter n: "; 
+cin >> n; 
+cout << "Enter matrix:\n"; 
+for (int i = 0; i < n; i++) 
+for (int j = 0; j < n; j++) 
+cin >> a[i][j]; 
+rotate(n, a); 
+cout << "The new matrix is:\n"; 
+print(n, a); 
+return 0; 
+}
