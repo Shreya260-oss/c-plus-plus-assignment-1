@@ -1,29 +1,22 @@
-#include <iostream> 
-using namespace std; 
-bool isPalindrome(string str) { 
-string cleaned = ""; 
-for (char ch : str) if (ch != ' ') cleaned += tolower(ch); 
-for (int i = 0, j = cleaned.size() - 1; i < j; i++, j--) 
-if (cleaned[i] != cleaned[j]) return false; 
-return true; 
-} 
-void countFrequency(string str) { 
-int freq[26] = {0}; 
-for (char ch : str) if (isalpha(ch)) freq[tolower(ch) - 'a']++; 
-for (int i = 0; i < 26; i++) if (freq[i]) 
-cout << char('a' + i) << ": " << freq[i] << endl; 
-} 
-string replaceVowels(string str, char replacement) { 
-for (char& ch : str) if (string("aeiouAEIOU").find(ch) != string::npos) ch = 
-replacement; 
-return str; 
-} 
-int main() { 
-string input; 
-cout << "Enter a string: "; 
-getline(cin, input); 
-cout << (isPalindrome(input) ? "The string is a palindrome." : "The string is not a palindrome.") << endl; 
-countFrequency(input); 
-cout << "String after replacing vowels: " << replaceVowels(input, '*') << endl; 
-return 0; 
-} 
+#include<iostream>
+using namespace std;
+
+bool isP(string s){
+    int i=0,j=s.length()-1;
+    while(i<j){
+        if(s[i]!=s[j])return false;
+        i++;j--;
+    }
+    return true;
+}
+
+int main(){
+    string str;
+    cout<<"Enter s:";
+    getline(cin,str);
+    if(isP(str))
+    cout<<"Palindrome."<<endl;
+    else
+    cout<<"Not palindrome."<<endl;
+    return 0;
+}
